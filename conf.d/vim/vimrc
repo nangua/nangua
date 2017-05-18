@@ -1,0 +1,65 @@
+if filereadable("/Users/nangua/Developer/src/coding.net/nangua/conf.d/vim/vimrc.plug.vim")
+  source /Users/nangua/Developer/src/coding.net/nangua/conf.d/vim/vimrc.plug.vim
+endif
+
+"autocmd BufLeave,FocusLost * silent! wall
+
+
+" Vim plugins for Go (http://golang.org)
+" ======================================
+" filetype off
+" filetype plugin indent off
+" set runtimepath+=$GOROOT/misc/vim
+" filetype plugin indent on
+" syntax on
+
+
+set encoding=utf-8
+" 显示行号
+" set nu
+set relativenumber
+
+" shiftwidth 自动缩进所使用的空白长度
+set sw=4
+
+" tabstop 定义tab所等同的空格长度
+set sts=4
+
+" softtabstop
+set ts=4
+
+" expandtab 即把自动把一个tab扩展为空格
+"set et
+"set expandtab!
+
+" smart indent
+set si
+
+" auto indent
+set ai
+
+" 在右下角显示光标当前位置
+set ruler
+
+"set textwidth=80
+"set colorcolumn=81
+
+" 高亮搜索关键字
+set hlsearch
+set nobackup
+set wrap
+
+
+set foldenable
+set foldmethod=expr
+set foldexpr=getline(v:lnum)=~'^\\s\\+#'  " fold comments
+set foldminlines=4
+set foldopen-=undo      " don't open folds when you undo stuff
+
+syntax on
+filetype plugin on
+
+" autocmd FileType go compiler gocode
+autocmd FileType go autocmd BufWritePre <buffer> Fmt 
+
+
