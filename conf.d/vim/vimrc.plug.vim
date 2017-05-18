@@ -18,7 +18,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'plasticboy/vim-markdown', {'for': 'md'}
-Plug 'elzr/vim-json'
+"Plug 'elzr/vim-json'
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'Shougo/unite.vim'
 Plug 'scrooloose/syntastic'
@@ -98,7 +98,8 @@ let g:vim_markdown_new_list_item_indent = 2
 "Plug 'Shougo/unite.vim'
 "nnoremap <C-p> :Unite file_rec/async<cr>
 "nnoremap <silent> <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
-nnoremap <silent> <leader>f :Unite file_rec/async<cr>
+" nnoremap <silent> <leader>f :Unite file_rec/async<cr>
+" nnoremap <silent> <leader>b :<C-u>Unite file buffer bookmark<CR>
 nnoremap <silent> <leader>b :<C-u>Unite buffer bookmark<CR>
 nnoremap <space>/ :Unite grep:.<cr>
 nnoremap <space>s :Unite -quick-match buffer<cr>
@@ -114,7 +115,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 
-silent! nmap <C-p> :NERDTreeToggle<CR>
+" silent! nmap <C-p> :NERDTreeToggle<CR>
+silent! nmap <F2> :NERDTreeToggle<CR>
+" let g:NERDTreeMapJumpNextSibling = ''
 
 " Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>

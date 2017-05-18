@@ -1,5 +1,5 @@
-if filereadable("/Users/nangua/Developer/src/coding.net/nangua/conf.d/vim/vimrc.plug.vim")
-  source /Users/nangua/Developer/src/coding.net/nangua/conf.d/vim/vimrc.plug.vim
+if filereadable("/Users/nangua/Developer/src/coding.net/nangua/nangua.me/DevOps/conf.d/vim/vimrc.plug.vim")
+  source /Users/nangua/Developer/src/coding.net/nangua/nangua.me/DevOps/conf.d/vim/vimrc.plug.vim
 endif
 
 "autocmd BufLeave,FocusLost * silent! wall
@@ -63,3 +63,7 @@ filetype plugin on
 autocmd FileType go autocmd BufWritePre <buffer> Fmt 
 
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
