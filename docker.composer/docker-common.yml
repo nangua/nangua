@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+    redis:
+        container_name: Redis
+        image: redis:alpine
+        ports:
+            - "6379:6379"
+        volumes:
+            - /tmp/redis-data:/data
+        deploy:
+            restart_policy:
+                condition: on-failure
+            replicas: 1
+            resources:
+                limits:
+                    cpus: "0.1"
+                    memory: 50M
+
+    mysql:
+        container_name: MySQL
+        image: mysql:latest
+        environment:
+            - MYSQL_ROOT_PASSWORD=11211
+            - MYSQL_ROOT_HOST=%
+        ports:
+            - "3306:3306"
+        volumes:
+            - ~/Developer/data/mysql:/var/lib/data
+        deploy:
+            restart_policy:
+                condition: on-failure
+            replicas: 1
+            resources:
+                limits:
+                    cpus: "0.1"
+                    memory: 100M
+
+    php-fpm:
+        container_name: PHP-Fpm 
+        image: nangua/php:latest
+        ports:
+            - "9000:9000"
+        depends_on:
+            - redis
+            - mysql
+        deploy:
+            restart_policy:
+                condition: on-failure
+            replicas: 1
+            resources:
+                limits:
+                    cpus: "0.1"
+                    memory: 150M
